@@ -1,4 +1,14 @@
 <?php
+
+// require_once dirname(__DIR__) . '/html/vendor/autoload.php';
+// /** @desc this instantiates Dotenv and passes in our path to .env */
+
+// $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+// $dotenv->load();
+
+// var_dump(getenv());
+// exit;
+
 /**
  * The base configuration for WordPress
  *
@@ -20,22 +30,33 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'laravel_wordpress');
+// define('DB_NAME', $_ENV['DB_DATABASE']);
+
+// /** MySQL database username */
+// define('DB_USER', $_ENV['DB_USERNAME']);
+
+// /** MySQL database password */
+// define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
+
+// /** MySQL hostname */
+// define('DB_HOST', $_ENV['DB_HOST'] . ':' . $_ENV['DB_PORT']);
+
+define('DB_NAME', 'laravel_wordpress');
 
 /** MySQL database username */
-define( 'DB_USER', 'sail');
+define('DB_USER', 'sail');
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'password');
+define('DB_PASSWORD', 'password');
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mysql:3306');
+define('DB_HOST', 'mysql:3306');
 
 /** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8');
+define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '');
+define('DB_COLLATE', '');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -46,14 +67,14 @@ define( 'DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         '256e48a7209ae068c4323b10cecb55bee86a1f24');
-define( 'SECURE_AUTH_KEY',  'b66057f4e3cf529939d992a5a4709a4db6cd2653');
-define( 'LOGGED_IN_KEY',    'fa6d375ce1fce128a65c3587782f797b682fcaa4');
-define( 'NONCE_KEY',        '2c202b1e4055614e79988b310794d6d1bd4d5e77');
-define( 'AUTH_SALT',        'c2718b89d0d48f4f947aa20d8229a56db3e5d355');
-define( 'SECURE_AUTH_SALT', '681d4c843711781d4cc8c06ae6821dddc9a4ef8c');
-define( 'LOGGED_IN_SALT',   'ecd0d4e6c9687123acf21afbbd9cf751dfa27321');
-define( 'NONCE_SALT',       '3c3049c083a22e6282e34ef49fcaa4b675733f42');
+define('AUTH_KEY',         '256e48a7209ae068c4323b10cecb55bee86a1f24');
+define('SECURE_AUTH_KEY',  'b66057f4e3cf529939d992a5a4709a4db6cd2653');
+define('LOGGED_IN_KEY',    'fa6d375ce1fce128a65c3587782f797b682fcaa4');
+define('NONCE_KEY',        '2c202b1e4055614e79988b310794d6d1bd4d5e77');
+define('AUTH_SALT',        'c2718b89d0d48f4f947aa20d8229a56db3e5d355');
+define('SECURE_AUTH_SALT', '681d4c843711781d4cc8c06ae6821dddc9a4ef8c');
+define('LOGGED_IN_SALT',   'ecd0d4e6c9687123acf21afbbd9cf751dfa27321');
+define('NONCE_SALT',       '3c3049c083a22e6282e34ef49fcaa4b675733f42');
 
 /**#@-*/
 
@@ -77,20 +98,20 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', true);
+define('WP_DEBUG', true);
 
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-	$_SERVER['HTTPS'] = 'on';
+    $_SERVER['HTTPS'] = 'on';
 }
 
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+if (!defined('ABSPATH')) {
+    define('ABSPATH', dirname(__FILE__) . '/');
 }
 
 /** Sets up WordPress vars and included files. */
-require_once( ABSPATH . 'wp-settings.php' );
+require_once(ABSPATH . 'wp-settings.php');

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Corcel\Model\Post;
+use Corcel\Model\Post as Model;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use Corcel\Model\Post;
 */
 
 Route::get('/', function () {
-    $posts = Post::published()->type('post')->get();
+    $posts = Model::published()->type('post')->get();
 
     return view('home', ['posts' => $posts]);
 });

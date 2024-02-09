@@ -45,7 +45,7 @@ services:
     wordpress:
         depends_on:
             - mysql
-        image: wordpress:5.1.1-fpm-alpine
+        image: wordpress:php8.3-fpm-alpine
         restart: unless-stopped
         environment:
             WORDPRESS_DB_HOST: '${DB_HOST}:${DB_PORT}'
@@ -53,7 +53,7 @@ services:
             WORDPRESS_DB_PASSWORD: '${DB_PASSWORD}'
             WORDPRESS_DB_NAME: '${DB_DATABASE}'
             WORDPRESS_DEBUG: '1'
-        volumes: ['./wordpress:/var/www/html']
+        volumes: ['./wordpress:/var/www/html','./vendor:/var/www/html/vendor', '.env:/var/www/.env']
         networks:
             - sail
     mysql:

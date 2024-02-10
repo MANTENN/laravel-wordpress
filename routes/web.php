@@ -15,7 +15,7 @@ use Corcel\Model\Post as Model;
 */
 
 Route::get('/', function () {
-    $posts = Model::published()->type('post')->get();
+    $posts = Model::published()->type('post')->orderBy('post_date', 'DESC')->limit(10)->get();
 
     return view('home', ['posts' => $posts]);
 });

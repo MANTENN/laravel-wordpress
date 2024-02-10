@@ -36,7 +36,7 @@
             <div class="grid gap-2">
                 <h1 class="font-bold text-2xl">{{ $post->title }}</h1>
                 <h1 class="block">{{ date('d-m-Y', strtotime($post->created_at)) }}</h1>
-                <p class="block">{!! $post->content !!}</p>
+                {!! $post->content !!}
                 <div>
                     @foreach ($post->keywords as $keyword)
                     <span class="block">{{ $keyword }}</span>

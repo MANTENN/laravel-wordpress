@@ -53,7 +53,7 @@ services:
             WORDPRESS_DB_PASSWORD: '${DB_PASSWORD}'
             WORDPRESS_DB_NAME: '${DB_DATABASE}'
             WORDPRESS_DEBUG: '1'
-        volumes: ['./wordpress:/var/www/html','./vendor:/var/www/html/vendor', '.env:/var/www/.env']
+        volumes: ['./wordpress:/var/www/html', '.env:/var/www/.env']
         networks:
             - sail
     mysql:
